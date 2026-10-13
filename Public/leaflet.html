@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampüs Harita Yönetim Sistemi | Leaflet GIS</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@2.14.2/dist/leaflet-geoman.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Top Navigation Bar (Matching Screenshot 1 & 3) -->
+    <nav class="site-nav">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <button id="toggle-sidebar-btn" class="icon-action-btn" title="Katmanlar Menüsünü Aç/Kapat">
+                <i data-lucide="menu"></i>
+            </button>
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon-box">🗺️</div>
+                <span>Kampüs Harita Yönetim Sistemi</span>
+            </a>
+        </div>
+
+        <ul>
+            <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+            <li><a href="leaflet.html" class="nav-link active">Marker Yönetimi (Leaflet)</a></li>
+            <li><a href="openlayers.html" class="nav-link">OpenLayers Motoru</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <span id="admin-status-badge" class="badge-tag" style="background:#e0e7ff; color:#4338ca; border-color:#c7d2fe;">Ziyaretçi Modu</span>
+            <button id="auth-btn" class="btn btn-outline btn-sm">Giriş Yap</button>
+        </div>
+    </nav>
+
+    <!-- Map & Dual Panel Layout -->
+    <div class="map-view-layout">
+        <!-- LEFT SIDEBAR: "Katmanlar" (Matching Screenshot 1 & 2) -->
+        <aside id="left-sidebar" class="map-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-title">
+                    <i data-lucide="layers" style="width: 18px; height: 18px; color: #4f46e5;"></i>
+                    <span id="sidebar-heading-text">Katmanlar</span>
+                </div>
+                <button id="close-left-sidebar-btn" class="icon-action-btn" title="Kapat">
+                    <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+                </button>
+            </div>
+
+            <!-- Search Box -->
+            <div class="sidebar-search-box">
+                <div class="sidebar-search-wrap">
+                    <i data-lucide="search" style="width: 15px; height: 15px; color: #94a3b8;"></i>
+                    <input type="text" id="map-search-input" placeholder="Haritada ara...">
+                    <button id="clear-search-btn" style="background:none; border:none; color:#94a3b8; cursor:pointer; display:none;">
+                        <i data-lucide="x" style="width:13px; height:13px;"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Categories Tree View -->
+            <div id="tree-container" class="sidebar-tree-container">
+                <!-- Populated dynamically by JavaScript -->
+            </div>
+        </aside>
+
+        <!-- CENTER MAP CANVAS -->
+        <main id="map" class="map-canvas">
+            <!-- Left Vertical Floating Toolbar (Admin Drawing Tools - Matching Screenshot 1 & 2) -->
+            <div id="map-vertical-toolbar" class="map-vertical-toolbar" style="display: none;">
+                <button id="tool-pan" class="map-tool-btn active" title="Gezinme / Seçim Modu">
+                    <i data-lucide="mouse-pointer-2" style="width: 18px; height: 18px;"></i>
+                </button>
+                <button id="tool-add-marker" class="map-tool-btn" title="Marker Ekle">
+                    <i data-lucide="map-pin" style="width: 18px; height: 18px;"></i>
+                </button>
+                <button id="tool-add-linestring" class="map-tool-btn" title="Çizgi / LineString Ekle">
+                    <i data-lucide="route" style="width: 18px; height: 18px;"></i>
+                </button>
+                <button id="tool-add-polygon" class="map-tool-btn" title="Poligon / Alan Ekle">
+                    <i data-lucide="hexagon" style="width: 18px; height: 18px;"></i>
+                </button>
+                <button id="tool-delete" class="map-tool-btn danger" title="Silme Modu">
+                    <i data-lucide="trash-2" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+
+            <!-- Base Layer Switcher Bar -->
+            <div class="map-base-layer-bar">
+                <button id="btn-layer-hybrid" class="btn btn-sm btn-emerald">🛰️ Google Hybrid</button>
+                <button id="btn-layer-osm" class="btn btn-sm btn-outline">🗺️ OpenStreetMap</button>
+            </div>
+
+            <!-- Floating "Detayları Gör" Button (Visitor Mode - Matching Screenshot 4) -->
+            <button id="floating-details-btn" class="floating-details-trigger-btn">
+                <i data-lucide="info" style="width: 16px; height: 16px;"></i>
+                <span>Detayları Gör</span>
+            </button>
+        </main>
+
+        <!-- RIGHT PANEL: "Yönetim Paneli" (Admin) OR "Detaylar" (Visitor) -->
+        <aside id="right-panel" class="map-right-panel">
+            <div class="panel-header">
+                <h3 id="right-panel-title">Yönetim Paneli</h3>
+                <button id="close-right-panel-btn" class="icon-action-btn" title="Kapat">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+
+            <!-- ADMIN TABS HEADER (Matching Screenshot 1 & 2) -->
+            <div id="admin-tabs-bar" class="panel-tabs-bar" style="display: none;">
+                <button class="panel-tab-btn active" data-tab="add-marker">Marker Ekle</button>
+                <button class="panel-tab-btn" data-tab="add-polygon">Şekil Ekle</button>
+                <button class="panel-tab-btn" data-tab="backup">Yedekle</button>
+            </div>
+
+            <div class="panel-body-scrollable">
+                <!-- TAB 1: MARKER EKLE / DÜZENLE FORM (Matching Screenshot 2) -->
+                <div id="tab-content-marker" class="tab-content-pane">
+                    <div class="form-tip-box" style="margin-bottom: 1rem;">
+                        <strong>İpucu:</strong> Haritaya tıklayarak enlem ve boylamı otomatik doldurabilirsiniz.
+                    </div>
+                    <form id="marker-form" style="display: flex; flex-direction: column; gap: 0.85rem;">
+                        <input type="hidden" id="editing-marker-id" value="">
+                        <div class="form-field-group">
+                            <label for="marker-name">İsim</label>
+                            <input type="text" id="marker-name" required placeholder="Örn: Hukuk Fakültesi Binası">
+                        </div>
+                        <div class="form-field-group">
+                            <label for="marker-category">Kategori</label>
+                            <select id="marker-category" required></select>
+                        </div>
+                        <div class="form-field-row">
+                            <div class="form-field-group">
+                                <label for="marker-lat">Enlem (Lat)</label>
+                                <input type="number" step="any" id="marker-lat" required placeholder="39.9405">
+                            </div>
+                            <div class="form-field-group">
+                                <label for="marker-lng">Boylam (Lng)</label>
+                                <input type="number" step="any" id="marker-lng" required placeholder="32.8220">
+                            </div>
+                        </div>
+                        <div class="form-field-group" style="flex-direction: row; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" id="marker-hide-symbology">
+                            <label for="marker-hide-symbology" style="margin-bottom: 0; font-weight: normal;">
+                                Sembolojiyi Gizle (Haritada görünmez yap)
+                            </label>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="marker-parent">Bağlı Olduğu Element (Ebeveyn)</label>
+                            <select id="marker-parent">
+                                <option value="">Yok (Kök Element)</option>
+                            </select>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="marker-image-input">Fotoğraf Yükle / Ekle</label>
+                            <input type="file" id="marker-image-input" accept="image/*" multiple style="font-size:0.8rem;">
+                            <div id="marker-images-preview" class="image-preview-strip"></div>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="marker-desc">Açıklama (Markdown Destekli)</label>
+                            <textarea id="marker-desc" rows="3" placeholder="Detaylı bilgi..."></textarea>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <button type="submit" class="btn btn-primary btn-sm" style="flex: 1;">Kaydet</button>
+                            <button type="button" id="marker-cancel-btn" class="btn btn-outline btn-sm">İptal</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB 2: ŞEKİL EKLE / DÜZENLE FORM -->
+                <div id="tab-content-polygon" class="tab-content-pane" style="display: none;">
+                    <div class="form-tip-box" style="margin-bottom: 1rem;">
+                        <strong>İpucu:</strong> Sol araç çubuğundaki Poligon veya Çizgi aracını seçerek harita üzerinde köşelere tıklayıp şekli çizin veya düzenlemek için mevcut bir şekli seçin.
+                    </div>
+                    <form id="polygon-form" style="display: flex; flex-direction: column; gap: 0.85rem;">
+                        <input type="hidden" id="editing-polygon-id" value="">
+                        <div class="form-field-group">
+                            <label for="polygon-name">Şekil / Bina İsmi</label>
+                            <input type="text" id="polygon-name" required placeholder="Örn: Merkezi Kütüphane Alanı">
+                        </div>
+                        <div class="form-field-group">
+                            <label for="polygon-category">Kategori</label>
+                            <select id="polygon-category" required></select>
+                        </div>
+                        <div class="form-field-group" style="flex-direction: row; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" id="polygon-hide-symbology">
+                            <label for="polygon-hide-symbology" style="margin-bottom: 0; font-weight: normal;">
+                                Sembolojiyi Gizle (Haritada görünmez yap)
+                            </label>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="polygon-parent">Bağlı Olduğu Element (Ebeveyn)</label>
+                            <select id="polygon-parent">
+                                <option value="">Yok (Kök Element)</option>
+                            </select>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="polygon-image-input">Fotoğraf Yükle / Ekle</label>
+                            <input type="file" id="polygon-image-input" accept="image/*" multiple style="font-size:0.8rem;">
+                            <div id="polygon-images-preview" class="image-preview-strip"></div>
+                        </div>
+                        <div class="form-field-group">
+                            <label for="polygon-desc">Açıklama</label>
+                            <textarea id="polygon-desc" rows="3" placeholder="Açıklama..."></textarea>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <button type="submit" class="btn btn-primary btn-sm" style="flex: 1;">Kaydet</button>
+                            <button type="button" id="polygon-cancel-btn" class="btn btn-outline btn-sm">İptal</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB 3: YEDEKLE & İÇE/DIŞA AKTAR (Matching Screenshot 1) -->
+                <div id="tab-content-backup" class="tab-content-pane" style="display: none;">
+                    <div class="backup-section-card">
+                        <div class="backup-section-title">Dışa Aktar (GeoJSON)</div>
+                        <div class="backup-section-desc">
+                            Tüm kategorileri, işaretçileri ve poligonları QGIS ve ArcGIS uyumlu standart GeoJSON (.geojson) formatında indirin.
+                        </div>
+                        <button id="backup-export-btn" class="btn btn-primary btn-sm" style="background:#4f46e5;">
+                            Tüm Verileri İndir (.geojson)
+                        </button>
+                    </div>
+
+                    <div class="backup-section-card" style="margin-top: 1rem;">
+                        <div class="backup-section-title">Akıllı GeoJSON / GeoPackage İçe Aktar</div>
+                        <div class="backup-section-desc">
+                            QGIS, ArcGIS gibi sistemlerden aldığınız .geojson dosyasını haritadaki kategorilerle eşleştirerek içeri aktarın.
+                        </div>
+                        <label for="backup-import-input" class="btn btn-emerald btn-sm" style="text-align: center; cursor: pointer;">
+                            Akıllı GeoJSON Sihirbazını Aç
+                        </label>
+                        <input type="file" id="backup-import-input" accept=".geojson,.json" style="display: none;">
+                    </div>
+
+                    <div class="backup-section-card" style="margin-top: 1rem; border-color: #fecaca; background: #fff5f5;">
+                        <div class="backup-section-title" style="color: #b91c1c;">Varsayılan Verilere Sıfırla</div>
+                        <div class="backup-section-desc">
+                            Tüm yerel çizimleri temizleyip veritabanından alınan orijinal kampüs verilerine döner.
+                        </div>
+                        <button id="backup-reset-btn" class="btn btn-danger btn-sm">
+                            Tüm Verileri Sıfırla
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VISITOR DETAILS DRAWER (Matching Screenshot 3) -->
+                <div id="tab-content-visitor-details" class="tab-content-pane" style="display: none;">
+                    <div id="visitor-details-container">
+                        <!-- Populated dynamically by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Login Modal (Demo Admin) -->
+    <div id="login-modal" class="modal-backdrop">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">Yönetici Girişi</h3>
+                <button id="modal-close-btn" class="icon-action-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-tip-box" style="background:#f0fdf4; border-color:#bbf7d0; color:#166534;">
+                    <strong>Demo Giriş Bilgileri:</strong><br>
+                    E-posta: <code>admin@admin.com</code><br>
+                    Şifre: <code>password</code>
+                </div>
+                <form id="login-form">
+                    <div class="form-field-group">
+                        <label for="login-email">E-posta</label>
+                        <input type="email" id="login-email" value="admin@admin.com" required>
+                    </div>
+                    <div class="form-field-group">
+                        <label for="login-password">Şifre</label>
+                        <input type="password" id="login-password" value="password" required>
+                    </div>
+                    <div id="login-error-msg" style="color: #ef4444; font-size: 0.8rem; display: none;">Hatalı e-posta veya şifre!</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="modal-cancel-btn" class="btn btn-outline btn-sm">İptal</button>
+                <button id="modal-submit-btn" class="btn btn-primary btn-sm">Giriş Yap</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast-msg"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@2.14.2/dist/leaflet-geoman.min.js"></script>
+    <script src="script-leaflet.js"></script>
+</body>
+</html>

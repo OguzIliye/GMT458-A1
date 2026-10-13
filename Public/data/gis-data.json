@@ -1,0 +1,862 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Kampüs Alanı",
+            "icon": "TreePine",
+            "color": "#10b981",
+            "type": "polygon",
+            "order": 1,
+            "min_zoom": null,
+            "max_zoom": 14,
+            "border_always_visible": true
+        },
+        {
+            "id": 2,
+            "name": "Fakülte & Bölümler",
+            "icon": "GraduationCap",
+            "color": "#2563eb",
+            "type": "polygon",
+            "order": 2,
+            "min_zoom": 14,
+            "max_zoom": null,
+            "border_always_visible": false
+        },
+        {
+            "id": 3,
+            "name": "Rektörlük & İdari Birimler",
+            "icon": "Building",
+            "color": "#dc2626",
+            "type": "polygon",
+            "order": 3,
+            "min_zoom": 14,
+            "max_zoom": null,
+            "border_always_visible": false
+        },
+        {
+            "id": 4,
+            "name": "Kütüphane & Dokümantasyon",
+            "icon": "Library",
+            "color": "#0d9488",
+            "type": "polygon",
+            "order": 4,
+            "min_zoom": 14,
+            "max_zoom": null,
+            "border_always_visible": false
+        },
+        {
+            "id": 5,
+            "name": "Öğrenci Yaşam & Sosyal Merkez",
+            "icon": "Coffee",
+            "color": "#ea580c",
+            "type": "polygon",
+            "order": 5,
+            "min_zoom": 14,
+            "max_zoom": null,
+            "border_always_visible": false
+        },
+        {
+            "id": 6,
+            "name": "Spor Kompleksi & Tesisler",
+            "icon": "Star",
+            "color": "#0284c7",
+            "type": "polygon",
+            "order": 6,
+            "min_zoom": 14,
+            "max_zoom": null,
+            "border_always_visible": false
+        },
+        {
+            "id": 7,
+            "name": "Teknokent & İnovasyon",
+            "icon": "Users",
+            "color": "#7c3aed",
+            "type": "polygon",
+            "order": 7,
+            "min_zoom": 14,
+            "max_zoom": null,
+            "border_always_visible": false
+        },
+        {
+            "id": 8,
+            "name": "Yurtlar & Konaklama",
+            "icon": "Home",
+            "color": "#16a34a",
+            "type": "polygon",
+            "order": 8,
+            "min_zoom": 14,
+            "max_zoom": null,
+            "border_always_visible": false
+        },
+        {
+            "id": 9,
+            "name": "Hizmet & Danışma Noktaları",
+            "icon": "MapPin",
+            "color": "#4f46e5",
+            "type": "marker",
+            "order": 9,
+            "min_zoom": 15,
+            "max_zoom": null,
+            "border_always_visible": false
+        }
+    ],
+    "polygons": [
+        {
+            "id": 100,
+            "name": "Merkezi Kampüs Yerleşkesi",
+            "description": "Tüm akademik, idari, sosyal ve spor tesislerini barındıran 1.200 dönümlük ana yerleşke sınırları.",
+            "category_id": 1,
+            "color": "#10b981",
+            "coordinates": [
+                [
+                    [
+                        32.818,
+                        39.9315
+                    ],
+                    [
+                        32.831,
+                        39.9315
+                    ],
+                    [
+                        32.8315,
+                        39.9415
+                    ],
+                    [
+                        32.8175,
+                        39.9415
+                    ],
+                    [
+                        32.818,
+                        39.9315
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80"
+            ],
+            "link": "https://gmt.hacettepe.edu.tr",
+            "link_title": "GMT Web GIS Portfolyo Sayfası",
+            "parent_id": null,
+            "parent_type": null,
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.818,
+                            39.9315
+                        ],
+                        [
+                            32.831,
+                            39.9315
+                        ],
+                        [
+                            32.8315,
+                            39.9415
+                        ],
+                        [
+                            32.8175,
+                            39.9415
+                        ],
+                        [
+                            32.818,
+                            39.9315
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 101,
+            "name": "Rektörlük ve Yönetim Binası",
+            "description": "Üniversite üst yönetimi, senato salonu ve idari birimlerin yer aldığı merkezi bina.",
+            "category_id": 3,
+            "color": "#dc2626",
+            "coordinates": [
+                [
+                    [
+                        32.8225,
+                        39.938
+                    ],
+                    [
+                        32.8248,
+                        39.938
+                    ],
+                    [
+                        32.8248,
+                        39.9392
+                    ],
+                    [
+                        32.8225,
+                        39.9392
+                    ],
+                    [
+                        32.8225,
+                        39.938
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.8225,
+                            39.938
+                        ],
+                        [
+                            32.8248,
+                            39.938
+                        ],
+                        [
+                            32.8248,
+                            39.9392
+                        ],
+                        [
+                            32.8225,
+                            39.9392
+                        ],
+                        [
+                            32.8225,
+                            39.938
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 102,
+            "name": "Merkez Kütüphane ve Dokümantasyon",
+            "description": "7/24 açık çalışma salonları, zengin basılı ve elektronik kaynak koleksiyonu içeren 4 katlı kütüphane.",
+            "category_id": 4,
+            "color": "#0d9488",
+            "coordinates": [
+                [
+                    [
+                        32.8252,
+                        39.937
+                    ],
+                    [
+                        32.8272,
+                        39.937
+                    ],
+                    [
+                        32.8272,
+                        39.9382
+                    ],
+                    [
+                        32.8252,
+                        39.9382
+                    ],
+                    [
+                        32.8252,
+                        39.937
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.8252,
+                            39.937
+                        ],
+                        [
+                            32.8272,
+                            39.937
+                        ],
+                        [
+                            32.8272,
+                            39.9382
+                        ],
+                        [
+                            32.8252,
+                            39.9382
+                        ],
+                        [
+                            32.8252,
+                            39.937
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 103,
+            "name": "Mühendislik & Doğa Bilimleri Fakültesi",
+            "description": "Bilgisayar, Elektrik-Elektronik, Makine ve Endüstri Mühendisliği bölümleri ile modern AR-GE laboratuvarları.",
+            "category_id": 2,
+            "color": "#2563eb",
+            "coordinates": [
+                [
+                    [
+                        32.821,
+                        39.9348
+                    ],
+                    [
+                        32.8238,
+                        39.9348
+                    ],
+                    [
+                        32.8238,
+                        39.9362
+                    ],
+                    [
+                        32.821,
+                        39.9362
+                    ],
+                    [
+                        32.821,
+                        39.9348
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+            ],
+            "link": "https://mf.gazi.edu.tr",
+            "link_title": "Fakülte Resmi Web Sitesi",
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.821,
+                            39.9348
+                        ],
+                        [
+                            32.8238,
+                            39.9348
+                        ],
+                        [
+                            32.8238,
+                            39.9362
+                        ],
+                        [
+                            32.821,
+                            39.9362
+                        ],
+                        [
+                            32.821,
+                            39.9348
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 104,
+            "name": "İktisadi ve İdari Bilimler Fakültesi",
+            "description": "İşletme, İktisat ve Uluslararası İlişkiler bölümlerini içeren modern derslik ve amfi blokları.",
+            "category_id": 2,
+            "color": "#2563eb",
+            "coordinates": [
+                [
+                    [
+                        32.825,
+                        39.934
+                    ],
+                    [
+                        32.8275,
+                        39.934
+                    ],
+                    [
+                        32.8275,
+                        39.9352
+                    ],
+                    [
+                        32.825,
+                        39.9352
+                    ],
+                    [
+                        32.825,
+                        39.934
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.825,
+                            39.934
+                        ],
+                        [
+                            32.8275,
+                            39.934
+                        ],
+                        [
+                            32.8275,
+                            39.9352
+                        ],
+                        [
+                            32.825,
+                            39.9352
+                        ],
+                        [
+                            32.825,
+                            39.934
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 105,
+            "name": "Öğrenci Yaşam Merkezi & Yemekhane",
+            "description": "Öğrenci kulüpleri, ana yemekhane salonu, kafeteryalar ve sosyal etkinlik alanları.",
+            "category_id": 5,
+            "color": "#ea580c",
+            "coordinates": [
+                [
+                    [
+                        32.8235,
+                        39.9358
+                    ],
+                    [
+                        32.8258,
+                        39.9358
+                    ],
+                    [
+                        32.8258,
+                        39.9368
+                    ],
+                    [
+                        32.8235,
+                        39.9368
+                    ],
+                    [
+                        32.8235,
+                        39.9358
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.8235,
+                            39.9358
+                        ],
+                        [
+                            32.8258,
+                            39.9358
+                        ],
+                        [
+                            32.8258,
+                            39.9368
+                        ],
+                        [
+                            32.8235,
+                            39.9368
+                        ],
+                        [
+                            32.8235,
+                            39.9358
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 106,
+            "name": "Kapalı Spor Kompleksi ve Tesisler",
+            "description": "Basketbol salonu, yarı olimpik havuz, fitness salonu ve açık tenis kortları.",
+            "category_id": 6,
+            "color": "#0284c7",
+            "coordinates": [
+                [
+                    [
+                        32.8205,
+                        39.9328
+                    ],
+                    [
+                        32.823,
+                        39.9328
+                    ],
+                    [
+                        32.823,
+                        39.9342
+                    ],
+                    [
+                        32.8205,
+                        39.9342
+                    ],
+                    [
+                        32.8205,
+                        39.9328
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.8205,
+                            39.9328
+                        ],
+                        [
+                            32.823,
+                            39.9328
+                        ],
+                        [
+                            32.823,
+                            39.9342
+                        ],
+                        [
+                            32.8205,
+                            39.9342
+                        ],
+                        [
+                            32.8205,
+                            39.9328
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 107,
+            "name": "Teknoloji Geliştirme Bölgesi (Teknokent)",
+            "description": "Yazılım ve yüksek teknoloji şirketlerine ev sahipliği yapan AR-GE ve kuluçka merkezi.",
+            "category_id": 7,
+            "color": "#7c3aed",
+            "coordinates": [
+                [
+                    [
+                        32.8275,
+                        39.9385
+                    ],
+                    [
+                        32.83,
+                        39.9385
+                    ],
+                    [
+                        32.83,
+                        39.9405
+                    ],
+                    [
+                        32.8275,
+                        39.9405
+                    ],
+                    [
+                        32.8275,
+                        39.9385
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.8275,
+                            39.9385
+                        ],
+                        [
+                            32.83,
+                            39.9385
+                        ],
+                        [
+                            32.83,
+                            39.9405
+                        ],
+                        [
+                            32.8275,
+                            39.9405
+                        ],
+                        [
+                            32.8275,
+                            39.9385
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 108,
+            "name": "Öğrenci Yurtları Kompleksi",
+            "description": "Kız ve erkek öğrenci blokları, çalışma odaları ve dinlenme salonları.",
+            "category_id": 8,
+            "color": "#16a34a",
+            "coordinates": [
+                [
+                    [
+                        32.8265,
+                        39.9322
+                    ],
+                    [
+                        32.8295,
+                        39.9322
+                    ],
+                    [
+                        32.8295,
+                        39.9336
+                    ],
+                    [
+                        32.8265,
+                        39.9336
+                    ],
+                    [
+                        32.8265,
+                        39.9322
+                    ]
+                ]
+            ],
+            "images": [
+                "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "geojson": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            32.8265,
+                            39.9322
+                        ],
+                        [
+                            32.8295,
+                            39.9322
+                        ],
+                        [
+                            32.8295,
+                            39.9336
+                        ],
+                        [
+                            32.8265,
+                            39.9336
+                        ],
+                        [
+                            32.8265,
+                            39.9322
+                        ]
+                    ]
+                ]
+            }
+        }
+    ],
+    "markers": [
+        {
+            "id": 201,
+            "name": "Senato ve Yönetim Kurulu Salonu",
+            "description": "Rektörlük 2. katında yer alan üniversite senatosu toplantı odası.",
+            "category_id": 3,
+            "latitude": 39.9386,
+            "longitude": 32.8236,
+            "images": [
+                "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 101,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 202,
+            "name": "Öğrenci İşleri Daire Başkanlığı",
+            "description": "Kayıt kabul, transkript ve mezuniyet işlemleri merkezi gişeleri.",
+            "category_id": 3,
+            "latitude": 39.9382,
+            "longitude": 32.8242,
+            "images": [],
+            "parent_id": 101,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 203,
+            "name": "Sessiz Bireysel Çalışma Salonu",
+            "description": "Merkez Kütüphane 3. katta 300 kişilik ses izolasyonlu ders çalışma alanı.",
+            "category_id": 4,
+            "latitude": 39.9376,
+            "longitude": 32.8262,
+            "images": [
+                "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 102,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 204,
+            "name": "Dijital Medya ve Nadir Eserler Arşivi",
+            "description": "Elektronik veri tabanları tarama terminalleri ve dijitalleştirilmiş arşivler.",
+            "category_id": 4,
+            "latitude": 39.9379,
+            "longitude": 32.8267,
+            "images": [],
+            "parent_id": 102,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 205,
+            "name": "Bilgisayar Mühendisliği Bölüm Başkanlığı",
+            "description": "Mühendislik Fakültesi B Blok, Bölüm Sekreterliği ve Öğretim Üyesi Ofisleri.",
+            "category_id": 2,
+            "latitude": 39.9356,
+            "longitude": 32.8222,
+            "images": [
+                "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 103,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 206,
+            "name": "Yapay Zeka ve Robotik Laboratuvarı",
+            "description": "Yüksek başarımlı GPU iş istasyonları ve otonom robot kitleri barındıran araştırma labı.",
+            "category_id": 2,
+            "latitude": 39.9352,
+            "longitude": 32.8231,
+            "images": [
+                "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 103,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 207,
+            "name": "Büyük Amfi 101 Konferans Salonu",
+            "description": "Mühendislik Fakültesi zemin katında yer alan 250 kişilik ana seminer amfisi.",
+            "category_id": 2,
+            "latitude": 39.9359,
+            "longitude": 32.8218,
+            "images": [],
+            "parent_id": 103,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 208,
+            "name": "Merkez Öğrenci Yemekhanesi",
+            "description": "Günde 5.000 öğrenciye tabldot ve diyet menü servisi sağlanan ana yemek salonu.",
+            "category_id": 5,
+            "latitude": 39.9363,
+            "longitude": 32.8242,
+            "images": [
+                "https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 105,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 209,
+            "name": "Kampüs Teras Kafe & Dinlenme Alanı",
+            "description": "Kahve çeşitleri, atıştırmalıklar ve açık hava oturma terası.",
+            "category_id": 5,
+            "latitude": 39.9361,
+            "longitude": 32.8252,
+            "images": [
+                "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 105,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 210,
+            "name": "Yarı Olimpik Kapalı Yüzme Havuzu",
+            "description": "25 metre 6 kulvarlı ısıtmalı kapalı havuz ve tribün alanı.",
+            "category_id": 6,
+            "latitude": 39.9333,
+            "longitude": 32.8218,
+            "images": [
+                "https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 106,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 211,
+            "name": "Kuluçka Merkezi & Girişimcilik Ofisi",
+            "description": "Öğrenci ve akademisyen girişimlerine mentorluk ve tohum desteği sunulan ortak çalışma ofisi.",
+            "category_id": 7,
+            "latitude": 39.9392,
+            "longitude": 32.8288,
+            "images": [
+                "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+            ],
+            "parent_id": 107,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 212,
+            "name": "Yurt Kayıt & Danışma Ofisi",
+            "description": "Öğrenci konaklama işlemleri ve idari koordinasyon birimi.",
+            "category_id": 8,
+            "latitude": 39.9328,
+            "longitude": 32.8278,
+            "images": [],
+            "parent_id": 108,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 213,
+            "name": "Kampüs Ana Giriş Nizamiyesi (Güvenlik)",
+            "description": "Ana giriş kapısı, HGS/kartlı araç geçiş ve ziyaretçi danışma noktası.",
+            "category_id": 9,
+            "latitude": 39.9405,
+            "longitude": 32.8245,
+            "images": [],
+            "parent_id": 100,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        },
+        {
+            "id": 214,
+            "name": "Merkez Sağlık Reviri ve Acil Destek",
+            "description": "İlk yardım, genel muayene ve acil müdahale sağlık birimi.",
+            "category_id": 9,
+            "latitude": 39.9366,
+            "longitude": 32.8239,
+            "images": [],
+            "parent_id": 105,
+            "parent_type": "App\\Models\\Polygon",
+            "hide_symbology": false
+        }
+    ]
+}

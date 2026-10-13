@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oğuz İliye | Web GIS & Geomatik Portfolyosu</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Top Navigation -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-brand">
+            <span class="brand-icon">🌐</span>
+            <span>Oğuz İliye | Web GIS</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="nav-link active">Ana Sayfa</a></li>
+            <li><a href="leaflet.html" class="nav-link">Leaflet</a></li>
+            <li><a href="openlayers.html" class="nav-link">OpenLayers</a></li>
+            <li><a href="#technologies" class="nav-link">Yetenekler</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="leaflet.html" class="btn btn-primary btn-sm">🚀 Haritayı Başlat</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-wrapper">
+        <div class="hero-content">
+            <div class="hero-avatar-box">
+                <img src="Public/HBV_Foto.jpeg" onerror="this.onerror=null; this.src='HBV_Foto.jpeg';" alt="Oğuz İliye" class="hero-avatar">
+            </div>
+            <div class="hero-text">
+                <div class="hero-tags">
+                    <span class="hero-tag">🎓 Geomatik Mühendisliği</span>
+                    <span class="hero-tag">🗺️ Web GIS Geliştirici</span>
+                    
+                </div>
+                <h1 class="animated-title">Oğuz İliye</h1>
+                <p class="hero-role">Web CBS Kişisel Portfolyom</p>
+                <p class="hero-desc">
+                    Modern web teknolojileri ve coğrafi bilgi standartlarını harmanlayarak yüksek performanslı, etkileşimli harita sistemleri geliştiriyorum. 
+                    Bu platform; sunucuya ihtiyaç duymadan istemci tarafında <strong>GeoJSON</strong>, <strong>Leaflet-Geoman</strong> ve <strong>OpenLayers</strong> kütüphaneleriyle çalışan, aynı zamanda AWS ve PostGIS mimarisine doğrudan uyumlu bir Web GIS portfolyosudur.
+                </p>
+                <div class="hero-cta">
+                    <a href="leaflet.html" class="btn btn-primary">
+                        <span>🗺️ Leaflet Map</span>
+                    </a>
+                    <a href="openlayers.html" class="btn btn-dark">
+                        <span>🌐 OpenLayers Map</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        <!-- Featured Projects Showcase -->
+        <section id="projects">
+            <div class="section-title">
+                <h2>Öne Çıkan Web GIS Projeleri</h2>
+                <p>İstemci tabanlı çalışan, çift kütüphane destekli ve bulut mimarisine hazır harita araçları</p>
+            </div>
+
+            <div class="project-grid">
+                <!-- Project 1: Leaflet GIS Studio -->
+                <article class="project-card">
+                    <div class="card-header-badge">
+                        <span class="badge-tag" style="background:#2563eb20; color:#2563eb; border-color:#2563eb40;">İnteraktif Çizim & Yönetim</span>
+                        <span style="font-size: 1.25rem;">📍</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Leaflet </h3>
+                        <p>
+                            Google Maps Hybrid ve OpenStreetMap altlıkları üzerinde dinamik poligon ve işaretçi çizimi yapabilen harita yönetim stüdyosu. Çizilen geometriler <code>localStorage</code> üzerinden saklanır ve GeoJSON olarak dışa/içe aktarılabilir.
+                        </p>
+                        <ul style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; padding-left: 1.2rem;">
+                            <li>Leaflet-Geoman serbest çizim ve köşe düzenleme araçları</li>
+                            <li>Demo Yönetici Girişi (<code>admin@admin.com</code> / <code>password</code>)</li>
+                            <li>Kategori katman filtreleri ve öznitelik denetleme paneli</li>
+                            <li>Bina ve tesis arama motoru</li>
+                        </ul>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Leaflet 1.9</span>
+                            <span class="tech-badge">Leaflet-Geoman</span>
+                            <span class="tech-badge">GeoJSON (RFC 7946)</span>
+                            <span class="tech-badge">LocalStorage Sync</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-size:0.8rem; color:var(--text-muted);">Durum: Aktif (Canlı)</span>
+                        <a href="leaflet.html" class="btn btn-primary btn-sm">Stüdyoyu Aç &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Project 2: OpenLayers Engine -->
+                <article class="project-card">
+                    <div class="card-header-badge">
+                        <span class="badge-tag" style="background:#10b98120; color:#10b981; border-color:#10b98140;">Vektör Projeksiyon & Analiz</span>
+                        <span style="font-size: 1.25rem;">🌐</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>OpenLayers</h3>
+                        <p>
+                            Leaflet veya yerel hafızada oluşturulan standart GeoJSON verilerini, OpenLayers motorunda koordinat dönüşümü (<code>EPSG:4326</code> &rarr; <code>EPSG:3857</code>) uygulayarak birebir render eden çapraz platform çözümü.
+                        </p>
+                        <ul style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; padding-left: 1.2rem;">
+                            <li>Standart GeoJSON parser (Format: <code>ol.format.GeoJSON</code>)</li>
+                            <li>Katman bazlı dinamik stil oluşturucu (Strokes, Fills, Labels)</li>
+                            <li>Zoom Threshold (Ölçek duyarlı işaretçi filtreleme)</li>
+                            <li>Harita tıklama olayları ile öznitelik denetleyicisi</li>
+                        </ul>
+                        <div class="tech-badges">
+                            <span class="tech-badge">OpenLayers 8</span>
+                            <span class="tech-badge">EPSG:3857</span>
+                            <span class="tech-badge">WGS84</span>
+                            <span class="tech-badge">Vector Layers</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-size:0.8rem; color:var(--text-muted);">Durum: Aktif (Canlı)</span>
+                        <a href="openlayers.html" class="btn btn-dark btn-sm">Motoru Başlat &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Project 3: Serverless GeoJSON & Data Architecture -->
+                <article class="project-card">
+                    <div class="card-header-badge">
+                        <span class="badge-tag" style="background:#8b5cf620; color:#8b5cf6; border-color:#8b5cf640;">Sunucusuz & Veri Mimarisi</span>
+                        <span style="font-size: 1.25rem;">⚡</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Sunucusuz GeoJSON & Veri Mimarisi</h3>
+                        <p>
+                            Sunucu veya harici veritabanı maliyeti gerektirmeden, GitHub Pages üzerinde %100 istemci taraflı (client-side) çalışan, standart RFC 7946 GeoJSON ve LocalStorage tabanlı kesintisiz konumsal veri mimarisi.
+                        </p>
+                        <ul style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; padding-left: 1.2rem;">
+                            <li>Standart GeoJSON (RFC 7946) ile QGIS ve ArcGIS tam veri uyumluluğu</li>
+                            <li>Çift yönlü GeoJSON içe ve dışa aktarma (Import / Export)</li>
+                            <li>Ebeveyn-çocuk (Parent-Child) ilişkisel hiyerarşisi ve öznitelik yönetimi</li>
+                            <li>Ziyaretçi detay paneli, fotoğraf galerisi ve dinamik sembolojiler</li>
+                        </ul>
+                        <div class="tech-badges">
+                            <span class="tech-badge">GeoJSON (RFC 7946)</span>
+                            <span class="tech-badge">LocalStorage Sync</span>
+                            <span class="tech-badge">GitHub Pages Ready</span>
+                            <span class="tech-badge">Client-Side GIS</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-size:0.8rem; color:var(--text-muted);">Veri Formatı: RFC 7946</span>
+                        <a href="data/gis-data.json" target="_blank" class="btn btn-outline btn-sm">Veriyi İncele (.json) &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Solved Criteria Section (GMT 458 Course Issues) -->
+        <section id="assignment-criteria" style="margin-bottom: 4rem;">
+            <div class="section-title">
+                <h2>GMT 458 Çözülen Web GIS Problemleri</h2>
+                <p>Ödev yönergesinde zorunlu tutulan teknik problemlerin mimari çözümleri</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+                <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+                    <h4 style="font-size: 1.15rem; color: var(--primary); margin-bottom: 0.5rem;">🔍 Issue 1: Zoom Threshold (İşaretçi Görünürlük Eşiği)</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem;">
+                        Harita çok uzaklaştığında ekran karmaşasını önlemek adına işaretçilerin sadece belirli bir yakınlaşma seviyesinden sonra görünmesi sağlandı.
+                    </p>
+                    <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem; font-size: 0.82rem; font-family: monospace;">
+                        <strong>Leaflet:</strong> <code>map.on('zoomend')</code> ile zoom &ge; 14 kontrolü yapılarak katman eklenip çıkarılır.<br><br>
+                        <strong>OpenLayers:</strong> <code>ol.layer.Vector</code> üzerinde doğrudan <code>minZoom: 14</code> özelliği tanımlandı.
+                    </div>
+                </div>
+
+                <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+                    <h4 style="font-size: 1.15rem; color: #10b981; margin-bottom: 0.5rem;">🌍 Issue 2: Earth Repeating Itself (Dünyanın Tekrarlanması)</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem;">
+                        Kullanıcı dünya haritasından uzaklaştığında haritanın sonsuz sağa/sola kopyalanmasının (sonsuz dünya döngüsü) önüne geçildi.
+                    </p>
+                    <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem; font-size: 0.82rem; font-family: monospace;">
+                        <strong>Leaflet:</strong> <code>L.tileLayer</code> için <code>noWrap: true</code> ve haritada <code>maxBounds</code> sınırları uygulandı.<br><br>
+                        <strong>OpenLayers:</strong> <code>ol.source.OSM</code> ve XYZ kaynaklarında <code>wrapX: false</code> ayarlandı.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Grid -->
+        <section id="technologies">
+            <div class="section-title">
+                <h2>Teknoloji & CBS Yığınları</h2>
+                <p>Projelerde ve geomatik mühendisliği çözümlerinde aktif kullandığım teknolojiler</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-box">
+                    <img src="https://leafletjs.com/docs/images/logo.png" alt="Leaflet">
+                    <div class="tech-box-info">
+                        <h4>Leaflet & Geoman</h4>
+                        <p>Mobil uyumlu interaktif web haritaları ve vektör çizim araçları</p>
+                    </div>
+                </div>
+
+                <div class="tech-box">
+                    <img src="https://openlayers.org/theme/img/logo-dark.svg" alt="OpenLayers">
+                    <div class="tech-box-info">
+                        <h4>OpenLayers</h4>
+                        <p>Yüksek performanslı vektör projeksiyon ve WMS/WFS entegrasyonu</p>
+                    </div>
+                </div>
+
+                <div class="tech-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL">
+                    <div class="tech-box-info">
+                        <h4>PostgreSQL & PostGIS</h4>
+                        <p>Uzamsal veritabanı modelleme, konumsal sorgular ve indeksleme</p>
+                    </div>
+                </div>
+
+                <div class="tech-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel">
+                    <div class="tech-box-info">
+                        <h4>Laravel (PHP 8.4)</h4>
+                        <p>CBS REST API, Eloquent uzamsal modelleri ve yetkilendirme</p>
+                    </div>
+                </div>
+
+                <div class="tech-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5">
+                    <div class="tech-box-info">
+                        <h4>Modern HTML5 & CSS3</h4>
+                        <p>Duyarlı arayüzler, grid/flexbox sistemleri ve animasyonlar</p>
+                    </div>
+                </div>
+
+                <div class="tech-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript">
+                    <div class="tech-box-info">
+                        <h4>JavaScript & TypeScript</h4>
+                        <p>Tip güvenli harita mimarisi, GeoJSON işleme ve asenkron veri yönetimi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #0f172a; color: #94a3b8; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.9rem;">
+        <p>&copy; 2026 Oğuz İliye — Geomatik Mühendisliği | Web GIS Portfolyosu</p>
+        <p style="font-size: 0.8rem; margin-top: 0.4rem; color: #64748b;">
+            GitHub Pages üzerinde sunucusuz olarak barındırılmaktadır. AWS ve PostGIS geçiş altyapısı mevcuttur.
+        </p>
+    </footer>
+</body>
+</html>
