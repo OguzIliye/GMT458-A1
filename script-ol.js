@@ -855,6 +855,19 @@ function zoomToElement(item) {
 // -----------------------------------------------------------------------------
 // 8. Right Panel Logic: Admin Management OR Visitor Details
 // -----------------------------------------------------------------------------
+function syncMapBackdrop() {
+    const leftOpen = document.getElementById('left-sidebar')?.classList.contains('open');
+    const rightOpen = document.getElementById('right-panel')?.classList.contains('open');
+    const backdrop = document.getElementById('map-backdrop');
+    if (backdrop) {
+        if (leftOpen || rightOpen) {
+            backdrop.classList.add('active');
+        } else {
+            backdrop.classList.remove('active');
+        }
+    }
+}
+
 function openAdminPanel(tab = 'add-marker') {
     currentAdminTab = tab;
     const panel = document.getElementById('right-panel');
@@ -864,6 +877,7 @@ function openAdminPanel(tab = 'add-marker') {
     title.textContent = 'Yönetim Paneli';
     tabsBar.style.display = 'flex';
     panel.classList.add('open');
+    syncMapBackdrop();
 
     document.querySelectorAll('.panel-tab-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.tab === tab);
@@ -893,6 +907,7 @@ function openVisitorDetails(item) {
     `;
     if (tabsBar) tabsBar.style.display = 'none';
     panel.classList.add('open');
+    syncMapBackdrop();
 
     const tabMarker = document.getElementById('tab-content-marker');
     const tabPoly = document.getElementById('tab-content-polygon');
@@ -979,6 +994,7 @@ function openVisitorDetails(item) {
 
 function closeRightPanel() {
     document.getElementById('right-panel')?.classList.remove('open');
+    syncMapBackdrop();
 }
 
 const closePanelBtn = document.getElementById('close-right-panel-btn');
@@ -1518,13 +1534,37 @@ document.getElementById('btn-layer-osm')?.addEventListener('click', () => {
     document.getElementById('btn-layer-hybrid').className = 'btn btn-sm btn-outline';
 });
 
-// Sidebar Toggle
+// Sidebar Toggle & Mobile Backdrop Sync
 document.getElementById('toggle-sidebar-btn')?.addEventListener('click', () => {
     document.getElementById('left-sidebar')?.classList.toggle('open');
+    syncMapBackdrop();
 });
 document.getElementById('close-left-sidebar-btn')?.addEventListener('click', () => {
     document.getElementById('left-sidebar')?.classList.remove('open');
+    syncMapBackdrop();
 });
+
+// Map Backdrop Tap to Close Drawers
+document.getElementById('map-backdrop')?.addEventListener('click', () => {
+    document.getElementById('left-sidebar')?.classList.remove('open');
+    document.getElementById('right-panel')?.classList.remove('open');
+    syncMapBackdrop();
+});
+
+// Mobile Pages Dropdown
+const mobilePagesToggle = document.getElementById('mobile-pages-toggle');
+const mobilePagesDropdown = document.getElementById('mobile-pages-dropdown');
+if (mobilePagesToggle && mobilePagesDropdown) {
+    mobilePagesToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobilePagesDropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+        if (!mobilePagesDropdown.contains(e.target) && !mobilePagesToggle.contains(e.target)) {
+            mobilePagesDropdown.classList.remove('open');
+        }
+    });
+}
 
 // Search Filter
 document.getElementById('map-search-input')?.addEventListener('input', (e) => {

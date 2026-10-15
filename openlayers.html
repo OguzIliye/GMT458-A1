@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Kampüs Harita Yönetim Sistemi | OpenLayers GIS Motoru</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
@@ -16,31 +16,51 @@
 </head>
 <body>
     <!-- Top Navigation Bar (Matching Screenshots 1 & 3) -->
-    <nav class="site-nav">
+    <nav class="site-nav map-site-nav">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
             <button id="toggle-sidebar-btn" class="icon-action-btn" title="Katmanlar Menüsünü Aç/Kapat">
                 <i data-lucide="menu"></i>
             </button>
             <a href="index.html" class="nav-brand">
                 <div class="brand-icon-box">🗺️</div>
-                <span>Kampüs Harita Yönetim Sistemi</span>
+                <span class="brand-text-full">Kampüs Harita Yönetim Sistemi</span>
+                <span class="brand-text-short">Kampüs GIS</span>
             </a>
         </div>
 
-        <ul>
+        <ul class="nav-map-links">
             <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
-            <li><a href="leaflet.html" class="nav-link">Marker Yönetimi (Leaflet)</a></li>
-            <li><a href="openlayers.html" class="nav-link active">OpenLayers Motoru</a></li>
+            <li><a href="leaflet.html" class="nav-link">Leaflet</a></li>
+            <li><a href="openlayers.html" class="nav-link active">OpenLayers</a></li>
         </ul>
 
         <div class="nav-actions">
             <span id="admin-status-badge" class="badge-tag" style="background:#e0e7ff; color:#4338ca; border-color:#c7d2fe;">Ziyaretçi Modu</span>
             <button id="auth-btn" class="btn btn-outline btn-sm">Giriş Yap</button>
+            <button id="mobile-pages-toggle" class="icon-action-btn mobile-pages-toggle" title="Sayfalar">
+                <i data-lucide="compass" style="width: 18px; height: 18px;"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Pages Dropdown -->
+        <div id="mobile-pages-dropdown" class="mobile-pages-dropdown">
+            <a href="index.html" class="mobile-dropdown-item">
+                <span>🏠</span> Ana Sayfa
+            </a>
+            <a href="leaflet.html" class="mobile-dropdown-item">
+                <span>📍</span> Leaflet Haritası
+            </a>
+            <a href="openlayers.html" class="mobile-dropdown-item active">
+                <span>🌐</span> OpenLayers Haritası
+            </a>
         </div>
     </nav>
 
     <!-- Map & Dual Panel Layout -->
     <div class="map-view-layout">
+        <!-- Backdrop for mobile drawers -->
+        <div id="map-backdrop" class="map-backdrop"></div>
+
         <!-- LEFT SIDEBAR: "Katmanlar" (Matching Screenshots 1 & 2) -->
         <aside id="left-sidebar" class="map-sidebar">
             <div class="sidebar-header">
